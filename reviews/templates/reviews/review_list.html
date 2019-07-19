@@ -1,0 +1,20 @@
+<h2>Latest Reviews</h2>
+
+
+{% if latest_review_list %}
+<div>
+    {% for review in latest_review_list %}
+<div>
+<h4><a href="{% url 'reviews:review_detail' review.id %}">
+    {{review.hotel.name}}
+</a></h4>
+<h6>rated {{review.rating}} of by {{review.user_name}}</h6>
+<p>
+    {{review.comment}}
+</p>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<p>No Reviews can be found.</p>
+{% endif %}
